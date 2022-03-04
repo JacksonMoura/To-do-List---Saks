@@ -55,21 +55,18 @@ const createTask = async (req,res) =>{
     res.render("index",{task,tasksList})
   }
 
-  const updateOneTask = async (req ,res) =>{
+  const updateOneTask = async (req ,res) =>  {
    
    try {
     const task = req.body;
 
-    await Task.updateOne({_id:req.params.id}, task)
+    await Task.updateOne ({_id:req.params.id}, task)
     res.redirect("/")
    } catch (error) {
     res.status(500).send({error: err.message})
    }
    
-    const task = req.body;
-
-   await Task.updateOne({_id:req.params.id},task)
-   res.redirect("/")
+  
   }
 
 const deleteOneTask = async (req, res) => {
